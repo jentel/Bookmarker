@@ -6,20 +6,20 @@ import { Observable } from 'rxjs';
 //   providedIn: 'root'
 // })
 @Injectable()
-export class ShareService {
+export class SitesService {
 
-  private basePath = '/shares';
+  private basePath = '/sites';
   public items: any;
   public item: any;
   constructor(private db: AngularFireDatabase) { }
 
-  addShare(data) {
+  addSite(data) {
     const obj = this.db.database.ref(this.basePath);
     obj.push(data);
     console.log('Success');
   }
 
-  getShares(path): Observable<any[]> {
+  getSites(path): Observable<any[]> {
     return this.db.list(path).valueChanges();
   }
 }

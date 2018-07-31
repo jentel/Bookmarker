@@ -1,10 +1,12 @@
 <table class="table table-striped">
   <tr>
-    <th>Share Name</th>
-    <th>Share Price</th>
+    <th>Bookmark Name</th>
+    <th>Bookmark URL</th>
+    <th>Tags</th>
   </tr>
-  <tr *ngFor="let share of shares | async">
-    <td>{{ share.name }}</td>
-    <td>{{ share.price }}</td>
+  <tr *ngFor="let site of sites | async">
+    <td>{{ site.name }}</td>
+    <td>{{ site.url }}</td>
+    <!-- <td>{{ site.tags }}</td> -->
   </tr>
 </table>

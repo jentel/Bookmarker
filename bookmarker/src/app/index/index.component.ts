@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ShareService } from '../share.service';
+import { SitesService } from '../sites.service';
 
 @Component({
   selector: 'app-index',
@@ -9,13 +9,13 @@ import { ShareService } from '../share.service';
 })
 export class IndexComponent implements OnInit {
 
-  public shares: Observable<any[]>;
-  constructor(private shareservice: ShareService) { }
+  public sites: Observable<any[]>;
+  constructor(private sitesservice: SitesService) { }
 
   ngOnInit() {
-    this.shares = this.getShares('/shares');
+    this.sites = this.getSites('/sites');
   }
-  getShares(path) {
-    return this.shareservice.getShares(path);
+  getSites(path) {
+    return this.sitesservice.getSites(path);
   }
 }

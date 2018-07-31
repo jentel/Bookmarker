@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShareService } from '../share.service';
+import { SitesService } from '../sites.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,26 +9,26 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateComponent implements OnInit {
 
-  title = 'Share Market';
-
   angForm: FormGroup;
-  constructor(private shareservice: ShareService, private fb: FormBuilder) { 
+  constructor(private sitesservice: SitesService, private fb: FormBuilder) { 
     this.createForm();
   }
 
   createForm() {
     this.angForm = this.fb.group({
       name: ['', Validators.required],
-      price: ['', Validators.required]
+      url: ['', Validators.required],
+      //tags: ['', Validators.required]
     });
   }
 
-  addShare(name, price) {
+  addSite(name, url) {
     const dataObj = {
       name: name,
-      price: price
+      url: url,
+      //tags: tags
     };
-    this.shareservice.addShare(dataObj);
+    this.sitesservice.addSite(dataObj);
   }
 
   ngOnInit() {
