@@ -13,7 +13,7 @@ export class SitesService {
   public item: any;
   constructor(private db: AngularFireDatabase) { }
 
-  addSite(data) {
+  addSite(data): void {
     const obj = this.db.database.ref(this.basePath);
     obj.push(data);
     console.log('Success');
@@ -21,5 +21,15 @@ export class SitesService {
 
   getSites(path): Observable<any[]> {
     return this.db.list(path).valueChanges();
+  }
+
+  editSite(key: string, value: any): void {
+    const obj = this.db.database.ref(this.basePath)
+    obj.update(key, value).catch(error => this.handleError(error));
+    console.log('Updated Successfully!');
+  }
+
+  private handleError(error) {
+    console.log(error);
   }
 }
