@@ -19,17 +19,13 @@
   </div>
 </nav> -->
 
-<div class="container">
-  <table class="table table-striped">
-    <tr>
-      <th>Bookmark Name</th>
-      <th>Bookmark URL</th>
-      <th>Tags</th>
-    </tr>
-    <tr *ngFor="let site of sites | async">
-      <td>{{ site.name }}</td>
-      <td>{{ site.url }}</td>
-      <!-- <td>{{ site.tags }}</td> -->
-    </tr>
-  </table>
+ <div class="container">
+ 
+  <div class="jumbotron">
+    <h1>Welcome to Bookmarker!</h1>
+    <p>This website is designed to keep track of all of your bookmarks! Click on the button below to get saving!</p>
+    <p *ngIf="authService.isLoggedIn()">
+      <a class="btn btn-lg btn-primary" href="/create" role="button">Add Bookmark</a>
+    </p>
+  </div>
 </div>
