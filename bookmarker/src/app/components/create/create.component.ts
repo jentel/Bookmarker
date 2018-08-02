@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SitesService } from '../sites.service';
+import { SitesService } from '../../services/sites.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({

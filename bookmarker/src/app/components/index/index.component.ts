@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SitesService } from '../sites.service';
+import { SitesService } from '../../services/sites.service';
 
 @Component({
   selector: 'app-index',
