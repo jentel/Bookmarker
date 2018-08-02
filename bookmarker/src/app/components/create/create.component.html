@@ -1,0 +1,52 @@
+<!-- <nav class="navbar navbar-dark bg-dark mb-5">
+  <span class="navbar-brand mb-0 h1" >Bookmarker</span>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/home">Home</a>
+      <a class="nav-item nav-link active" href="/create">Add Bookmarks</a>
+      <a class="nav-item nav-link active" href="/index">Display Bookmarks</a>
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="https://github.com/" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="" (click)="authService.logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</nav> -->
+
+<div class="container">
+  <div class="panel panel-primary">
+    <h4>Name and Url are required!</h4>
+    <app-alerts></app-alerts>
+    <div class="panel-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Bookmark Name</label>
+          <input type="text" class="form-control" formControlName="name" #name />
+        </div>
+        <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['name'].errors.required">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Site Url</label>
+          <input type="text" class="form-control" formControlName="url" #url/>
+        </div>
+        <div *ngIf="angForm.controls['url'].invalid && (angForm.controls['url'].dirty || angForm.controls['url'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['url'].errors.required">
+            URL is required.
+          </div>
+        </div>
+          <div class="form-group">
+            <button (click)="addSite(name.value, url.value); angForm.reset()" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

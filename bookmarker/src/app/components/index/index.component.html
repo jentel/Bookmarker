@@ -1,0 +1,35 @@
+<!-- <nav class="navbar navbar-dark bg-dark mb-5">
+  <span class="navbar-brand mb-0 h1" >Bookmarker</span>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/home">Home</a>
+      <a class="nav-item nav-link active" href="/create">Add Bookmarks</a>
+      <a class="nav-item nav-link active" href="/index">Display Bookmarks</a>
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="https://github.com/" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="" (click)="authService.logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</nav> -->
+
+<div class="container">
+  <table class="table table-striped">
+    <tr>
+      <th>Bookmark Name</th>
+      <th>Bookmark URL</th>
+      <th>Tags</th>
+    </tr>
+    <tr *ngFor="let site of sites | async">
+      <td>{{ site.name }}</td>
+      <td>{{ site.url }}</td>
+      <!-- <td>{{ site.tags }}</td> -->
+    </tr>
+  </table>
+</div>

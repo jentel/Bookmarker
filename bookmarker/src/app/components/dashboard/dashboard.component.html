@@ -1,0 +1,31 @@
+<!-- <nav class="navbar navbar-dark bg-dark mb-5">
+  <span class="navbar-brand mb-0 h1" >Bookmarker</span>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/home">Home</a>
+      <a class="nav-item nav-link active" href="/create">Add Bookmarks</a>
+      <a class="nav-item nav-link active" href="/index">Display Bookmarks</a>
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="https://github.com/" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="" (click)="authService.logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</nav> -->
+
+<div class="container">
+ 
+  <div class="jumbotron">
+    <h1>Welcome to Bookmarker!</h1>
+    <p>This website is designed to keep track of all of your bookmarks! Click on the button below to get saving!</p>
+    <p *ngIf="authService.isLoggedIn()">
+      <a class="btn btn-lg btn-primary" href="/create" role="button">Add Bookmark</a>
+    </p>
+  </div>
+</div>
