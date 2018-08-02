@@ -6,6 +6,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { RoutingModule } from './routing/routing.module';
+import { AlertsModule } from 'angular-alert-module';
 
 import { AppComponent } from './app.component';
 import { CreateComponent } from './components/create/create.component';
@@ -35,7 +36,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     AngularFireAuthModule,
     RoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AlertsModule.forRoot()
   ],
   providers: [
     SitesService,

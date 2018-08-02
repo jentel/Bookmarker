@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SitesService } from '../../services/sites.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-create',
@@ -10,7 +11,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CreateComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private sitesservice: SitesService, private fb: FormBuilder) { 
+  constructor(private sitesservice: SitesService, 
+              private fb: FormBuilder, 
+              private alertservice: AlertsService) { 
     this.createForm();
   }
 
@@ -29,6 +32,7 @@ export class CreateComponent implements OnInit {
       //tags: tags
     };
     this.sitesservice.addSite(dataObj);
+    this.alertservice.setMessage('Configurations saved successfully!','success');
   }
 
   ngOnInit() {
