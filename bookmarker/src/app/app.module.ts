@@ -13,7 +13,9 @@ import { IndexComponent } from './components/index/index.component';
 import { EditComponent } from './components/edit/edit.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AlertComponent } from './components/alert/alert.component';
 
+import { AlertService } from './services/alert.service';
 import { SitesService } from './services/sites.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -26,7 +28,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     IndexComponent,
     EditComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { AuthGuardService } from './services/auth-guard.service';
   providers: [
     SitesService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

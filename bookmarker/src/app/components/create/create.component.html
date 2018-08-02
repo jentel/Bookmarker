@@ -20,14 +20,10 @@
 </nav> -->
 
 <div class="container">
+  <h4>Name and Url are required!</h4>
   <div class="panel panel-primary">
     <div class="panel-body">
       <form [formGroup]="angForm" novalidate>
-        <!-- <div *ngIf="angForm.controls['name']. && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
-          <div *ngIf="angForm.controls['name'].errors.required">
-            Name is required.
-          </div>
-        </div> -->
         <div class="form-group">
           <label class="col-md-4">Bookmark Name</label>
           <input type="text" class="form-control" formControlName="name" #name />
@@ -47,7 +43,7 @@
           </div>
         </div>
           <div class="form-group">
-            <button (click)="addSite(name.value, url.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+            <button (click)="addSite(name.value, url.value); angForm.reset()" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
           </div>
       </form>
     </div>
