@@ -29,7 +29,8 @@
     <tr *ngFor="let site of sites | async">
       <td>{{ site.name }}</td>
       <td>{{ site.url }}</td>
-      <!-- <td>{{ site.tags }}</td> -->
+      <td *ngIf="site.tags">{{site.tags[0].name}}</td>
+      <td *ngIf="!site.tags">...</td>
     </tr>
   </table>
 </div>

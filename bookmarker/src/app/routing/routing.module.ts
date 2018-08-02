@@ -15,28 +15,31 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: '',
-    // runGuardsAndResolvers: 'always',
-    // canActivate:[AuthGuardService],
-    children: [
-      {
+  //   path: '',
+  //   runGuardsAndResolvers: 'always',
+  //   canActivate:[AuthGuardService],
+  //   children: [
+  //     {
         path: 'home',
+        canActivate:[AuthGuardService],
         component: DashboardComponent
       }, 
       { 
         path: 'create',
+        canActivate:[AuthGuardService],
         component: CreateComponent
       },
       {
         path: 'index',
+        canActivate:[AuthGuardService],
         component: IndexComponent
       },
       // {
       //   path: 'edit/:id',
       //   component: EditComponent
       // }
-    ]
-  }
+  //   ]
+  // }
 ];
 
 @NgModule({

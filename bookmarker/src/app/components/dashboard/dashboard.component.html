@@ -25,7 +25,7 @@
     <h1>Welcome to Bookmarker!</h1>
     <p>This website is designed to keep track of all of your bookmarks! Click on the button below to get saving!</p>
     <p *ngIf="authService.isLoggedIn()">
-      <a class="btn btn-lg btn-primary" href="/create" role="button">Add Bookmark</a>
+      <a class="btn btn-lg btn-primary" routerLink="/create" role="button">Add Bookmark</a>
     </p>
   </div>
 </div>

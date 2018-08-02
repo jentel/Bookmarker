@@ -43,6 +43,24 @@
             URL is required.
           </div>
         </div>
+        <div class="form-group">
+          <label class="col-md-4">Tags</label>
+          <mat-form-field class="form-control">
+            <mat-chip-list #tagList>
+              <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                       [removable]="removable" (removed)="removeTag(tag)">
+                {{tag.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input  [matChipInputFor]="tagList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="addTags($event)"
+                     >
+            </mat-chip-list>
+          </mat-form-field>
+          
+        </div>
           <div class="form-group">
             <button (click)="addSite(name.value, url.value); angForm.reset()" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
           </div>

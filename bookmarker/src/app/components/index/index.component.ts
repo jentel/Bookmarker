@@ -9,13 +9,18 @@ import { SitesService } from '../../services/sites.service';
 })
 export class IndexComponent implements OnInit {
 
-  public sites: Observable<any[]>;
+  public sites: any;
   constructor(private sitesservice: SitesService) { }
 
   ngOnInit() {
     this.sites = this.getSites('/sites');
   }
+  
   getSites(path) {
     return this.sitesservice.getSites(path);
+  }
+
+  getConsole(site) {
+    console.log(site)
   }
 }

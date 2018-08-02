@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SitesService } from '../../services/sites.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AlertsService } from 'angular-alert-module';
+import { MatChipInputEvent } from '@angular/material';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-create',
@@ -9,11 +10,15 @@ import { AlertsService } from 'angular-alert-module';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  tags: Tag[] = [];
   angForm: FormGroup;
   constructor(private sitesservice: SitesService, 
-              private fb: FormBuilder, 
-              private alertservice: AlertsService) { 
+              private fb: FormBuilder) { 
     this.createForm();
   }
 
@@ -21,7 +26,7 @@ export class CreateComponent implements OnInit {
     this.angForm = this.fb.group({
       name: ['', Validators.required],
       url: ['', Validators.required],
-      //tags: ['', Validators.required]
+      tags: this.tags
     });
   }
 
@@ -29,12 +34,39 @@ export class CreateComponent implements OnInit {
     const dataObj = {
       name: name,
       url: url,
-      //tags: tags
+      tags: this.tags
     };
     this.sitesservice.addSite(dataObj);
-    this.alertservice.setMessage('Configurations saved successfully!','success');
+    this.tags=[];
+  }
+
+  addTags(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our tags
+    if ((value || '').trim()) {
+      this.tags.push({name: value.trim()});
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  removeTag(tag: Tag): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+    }
   }
 
   ngOnInit() {
   }
+}
+
+export interface Tag {
+  name: string;
 }
