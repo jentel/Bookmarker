@@ -20,6 +20,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SitesService } from './services/sites.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     IndexComponent,
     // EditComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

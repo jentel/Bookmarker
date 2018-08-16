@@ -8,38 +8,37 @@ import { LoginComponent } from '../components/login/login.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 
 import { AuthGuardService } from '../services/auth-guard.service';
+import { HeaderComponent } from '../components/header/header.component';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   },
   {
-  //   path: '',
-  //   runGuardsAndResolvers: 'always',
-  //   canActivate:[AuthGuardService],
-  //   children: [
-  //     {
+    path: '',
+    component: HeaderComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate:[AuthGuardService],
+    children: [
+      {
         path: 'home',
-        canActivate:[AuthGuardService],
         component: DashboardComponent
       }, 
       { 
         path: 'create',
-        canActivate:[AuthGuardService],
         component: CreateComponent
       },
       {
         path: 'index',
-        canActivate:[AuthGuardService],
         component: IndexComponent
       },
       // {
       //   path: 'edit/:id',
       //   component: EditComponent
       // }
-  //   ]
-  // }
+    ]
+  }
 ];
 
 @NgModule({

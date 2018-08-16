@@ -51,6 +51,6 @@ export class AuthService {
   //   return this.fbAuth.auth;
   // }
   logout() {
-    this.fbAuth.auth.signOut().then((res) => this.router.navigate(['/']));
+    this.fbAuth.auth.signOut().then((res) => this.router.navigate(['/login']));
   }
 }
