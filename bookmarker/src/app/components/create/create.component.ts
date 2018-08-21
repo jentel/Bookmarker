@@ -17,6 +17,7 @@ export class CreateComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   tags: Tag[] = [];
   angForm: FormGroup;
+
   constructor(private sitesservice: SitesService, 
               private fb: FormBuilder) { 
     this.createForm();
@@ -26,7 +27,7 @@ export class CreateComponent implements OnInit {
     this.angForm = this.fb.group({
       name: ['', Validators.required],
       url: ['', Validators.required],
-      tags: this.tags
+      tags: [this.tags]
     });
   }
 

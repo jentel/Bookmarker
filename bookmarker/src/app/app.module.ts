@@ -7,7 +7,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { RoutingModule } from './routing/routing.module';
 import { AlertsModule } from 'angular-alert-module';
-import { MatChipsModule, MatFormFieldModule, MatIconModule } from '@angular/material';
+import { MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatToolbarModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -45,12 +45,18 @@ import { HeaderComponent } from './components/header/header.component';
     MatChipsModule,
     MatFormFieldModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   exports: [
     MatChipsModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [
     SitesService,
