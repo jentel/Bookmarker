@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { AlertsService } from 'angular-alert-module';
+import { FileNode } from '../datafiles/file-node';
+
 
 @Injectable()
 export class SitesService {
@@ -21,6 +23,21 @@ export class SitesService {
   getSites(path): Observable<any[]> {
     return this.db.list(path).valueChanges();
   }
+
+  // getFilteredList(){
+
+  //   var sites = this.db.list<FileNode>(this.basePath).valueChanges();
+  //   // sites.subscribe(data => {
+  //   //   this.siteList = data;
+  //   // })
+
+  //   var test = this.db.list(this.basePath).snapshotChanges(
+  //               map((changes) => {
+
+  //               }))
+
+  //   return ;
+  // }
 
   // editSite(key: string, value: any): void {
   //   const obj = this.db.database.ref(this.basePath)
