@@ -11,15 +11,15 @@ import { AuthGuardService } from '../services/auth-guard.service';
 import { HeaderComponent } from '../components/header/header.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+  // {
+  //   path: 'login',
+  //   component: LoginComponent
+  // },
   {
     path: '',
     component: HeaderComponent,
-    runGuardsAndResolvers: 'always',
-    canActivate:[AuthGuardService],
+    // runGuardsAndResolvers: 'always',
+    // canActivate:[AuthGuardService],
     children: [
       {
         path: 'home',
